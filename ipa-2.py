@@ -37,7 +37,7 @@ def shift_letter(letter, shift):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-     if letter == " ":
+    if letter == " ":
         return " "
     elif letter.islower():
         return "UPPERCASE NGA"
@@ -266,6 +266,6 @@ def scytale_decipher(message, shift):
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
     assert len(message) % shift == 0
-    return encrypt(message, len(message) // shift)
+    return scytale_cipher(message, len(message) // shift)
 
     

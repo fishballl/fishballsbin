@@ -228,7 +228,15 @@ def scytale_cipher(message, shift):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    assert len(plaintext) % rows == 0
+    n = len(plaintext)
+    columns = n // rows
+    ciphertext = ['-'] * n
+    for i in range(n):
+        row = i // columns
+        col = i % columns
+        ciphertext[col * rows + row] = plaintext[i]
+    return "".join(ciphertext)
 
 def scytale_decipher(message, shift):
     '''Scytale De-cipher.
@@ -257,4 +265,7 @@ def scytale_decipher(message, shift):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    pass
+    assert len(ciphertext) % rows == 0
+    return encrypt(len(ciphertext) // rows, ciphertext)
+
+    

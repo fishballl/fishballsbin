@@ -228,15 +228,16 @@ def scytale_cipher(message, shift):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    assert len(message) % shift == 0
-    n = len(message)
-    columns = n // shift
-    ciphertext = ['-'] * n
-    for i in range(n):
-        row = i // columns
-        col = i % columns
-        ciphertext[col * shift + row] = message[i]
-    return "".join(ciphertext)
+    if len(message) % shift != 0:
+        message += '_' * (shift - len(message) % shift)
+
+    encoded_message = ''
+    for i in range(len(message)):
+        index= (i//shift)+(len(message)//shift)*(i%shift)
+        encoded_message += message[index]
+
+    # Step 4:  the encoded message
+    return encoded_message
 
 def scytale_decipher(message, shift):
     '''Scytale De-cipher.
